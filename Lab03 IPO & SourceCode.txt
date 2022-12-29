@@ -1,0 +1,416 @@
+PROBLEM 01
+
+INPUT:
+	
+	get employmentLength
+	get salary
+
+PROCESSING:
+	
+	check if employmentLength is > 1 year
+	check if salary is > $40,000
+	calculate appoval
+
+OUTPUT:
+	loan approved
+	or
+	loan denied
+
+ALGORITH:
+	display message asking for time worked at job
+		jobLength = user input
+	display message asking for user salary
+		salary = user input
+
+	if jobLength > 1 year and salary > $40,000
+		display message congratulating user on loan approval
+	else desplay message denying the user
+
+SOURCE CODE:
+	
+Console.WriteLine("Please enter the number of years you have had your current job.");
+            int jobLength = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Please enter your current salary, as a whole without a comma");
+            int salary = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+
+            if (jobLength >= 1 && salary >= 40000)
+            {
+                Console.WriteLine("CONGRATULATIONS! You've been approved!");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("BUMMER! You've been denied!");
+                Console.WriteLine();
+            }
+
+            Console.ReadLine();
+
++++++++++++++++++++++
+PROBLEM 02
+
+INPUT:
+	Get integers 1 through 5
+	Get Roman Numerals I - V
+
+PROCESSING:
+	set each integer equal to its numeral counterpart
+	1 = I
+	2 = II
+	etc etc
+
+OUTPUT:
+	the correct numeral 
+
+ALGORITHM:
+	display message asking for the user to input a number between 1 and 5
+		input = user input
+			use switch to check input against numerals
+				display the correct number
+			if input is not a valid number 
+				display a message telling the user they made an invalid input
+
+SOURCE CODE:
+	 Console.WriteLine("Please enter the number you wish to convert. It must be between 1 and 5");
+            int input = int.Parse(Console.ReadLine());
+
+            switch (input)
+            {
+                case 1:
+                    Console.WriteLine("I");
+                    break;
+
+                case 2:
+                    Console.WriteLine("II");
+                    break;
+
+                case 3:
+                    Console.WriteLine("III");
+                    break;
+
+                case 4:
+                    Console.WriteLine("IV");
+                    break;
+
+                case 5:
+                    Console.WriteLine("V");
+                    break;
+
+                default:
+                    Console.WriteLine("Error, Invalid Input!");
+                    break;
+                
+            }
+
+            Console.ReadLine();
+
++++++++++++++++++++++
+PROBLEM 03
+
+INPUT: 
+	get random number one
+	get random number two
+	get user's answer
+
+PROCESSING:
+	display number one and number two
+	input user answer
+
+OUTPUT:
+	correct or incorrect 
+
+ALGORITH:
+	initialize random number generator
+		firstNum = random number 9-999
+		secNum = random number 9 - 999
+		
+		ans = firstNum + secNum
+	display a message that shows the first number and the second number and asks the user their sum
+		numGuess = input
+
+	if numGuess == ans
+		display a message telling the user they are correct
+	else display a message telling the user they are wrong and what the answer is
+
+SOURCE CODE:
+	//This is my code from lab02 with the errors fixed
+
+	 Random rnd = new Random();
+            int firstNum = rnd.Next(10, 1000);
+            
+            int secNum = rnd.Next(10, 1000);
+            int ans = firstNum + secNum;
+
+            Console.WriteLine("The first number is " + firstNum + " the second number is " + secNum);
+            Console.WriteLine("What is the sum of both numbers?");
+
+            int numGuess = int.Parse(Console.ReadLine());
+
+            if (numGuess == ans)
+                Console.WriteLine("Thats Right!");
+            else
+                Console.WriteLine("Sorry, the correct answer is " + ans);
+
+            Console.WriteLine();
+
++++++++++++++++++++++
+PROBLEM 04
+
+INPUT:
+	get red
+	get blue
+	get yellow
+	get color combos
+	
+PROCESSING:
+	check input colors agains the list of combo colors
+
+OUTPUT:
+	display the two input colors and the color they make
+
+ALGORITH:
+	display message asking for 1st color
+		color1 = user input
+	display message asking for color 2
+		color 2 = user input
+	pass the colors into GetColor
+		if color1 = red and color2 = blue
+			display message saying the color is purple
+		else if color1 = red and color2 = yellow
+			display a message saying the color is orange
+		else if color1 = blue and color2 = yellow 
+			display a message saying the color is green
+		else display a message saying no valid color combination
+		
+SOURCE CODE:
+	(I had a friend help me out with this one, specifically on the structure) 
+
+             void Start()
+            {
+                Console.WriteLine("Input first color");
+                Console.ReadLine();
+                var color1 = Console.ReadLine();
+
+                Console.WriteLine("Input second color");
+                Console.ReadLine();
+                var color2 = Console.ReadLine();
+
+                Console.WriteLine(GetColor(color1, color2));
+            }
+
+          string GetColor(string color1, string color2)
+            {
+                bool red = (color1 == "red") || (color2 == "red");
+                bool blue = (color1 == "blue") || (color2 == "blue");
+                bool yellow = (color1 == "yellow") || (color2 == "yellow");
+
+                if (red && blue) return "purple";
+                if (red && yellow) return "orange";
+                if (blue && yellow) return "green";
+                return "No valid color combination";
+
+      
+            }
+            Start();
+            Console.WriteLine();
+
++++++++++++++++++++++
+PROBLEM 05
+
+INPUT:
+	number of quarters
+	number of dimes
+	number of nickles
+	number of pennies 
+
+PROCESSING:
+	add up the inputs
+	check to see if the total is greater than, less than, or equal to a dollar (100)
+
+OUTPUT:
+	if the input is equal to a dollar, congratulate the user
+	if it isnt tell them sorry
+
+ALGORITHM:
+	declare quarters = 25
+	declare dimes = 10
+	decalre nickles = 5
+	declare pennies = 1
+	
+	display a message asking user to input the number of quarters
+		userQarters = input
+	display a message asking user to input the number of dimes
+		userDimes = input
+	display a message asking the user to input the number of nickles
+		userNickles = input
+	display a message asking the user to input the number of pennies
+		userPennies = input
+	
+	calculate
+	valQuarters = quarters * userQuarters
+	valDimes = dimes * userDimes
+	valNickles = nickles * userNickles
+	valPennies = pennies * userPennies
+
+	declare sum = valQuarters + valDimes + valNickles + valPennies
+
+	if sum == 100
+		display message congratulating the user
+	else display message telling the user they were wrong and their sum
+		
+
+SOURCE CODE:
+	int quarters = 25;
+            int dimes = 10;
+            int nickles = 5;
+            int pennies = 1;
+
+            Console.WriteLine("Learn how to count change up to $1. Please enter a number of quarters.");
+            int userQuarters = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Now enter a number of dimes.");
+            int userDimes = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Now enter a number of nickles.");
+            int userNickles = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Now enter the number of Pennies.");
+            int userPennies = int.Parse(Console.ReadLine());
+
+            int valQuarters = quarters * userQuarters;
+            int valDimes = dimes * userDimes;
+            int valNickles = nickles * userNickles;
+            int valPennies = pennies * userPennies;
+
+            decimal sum = Convert.ToDecimal(valQuarters + valDimes + valNickles + valPennies);
+
+            if (sum == 100)
+                Console.WriteLine("Congratulations! Your change added up to one dollar!");
+            else
+                Console.WriteLine("Sorry, your change was equal to $" + sum);
+
+
+
+            Console.ReadLine();
+
++++++++++++++++++++++
+PROBLEM 06
+
+INPUT:
+	get userMove, either rock, paper, or scissors
+
+PROCESSING:
+	set rock = 1
+	paper = 2
+	scissors = 3
+	generate a random number between 1 and 3
+	use that random number to choose the computer's move
+	
+OUTPUT:
+	the user's move
+	the computer's move
+	who won
+
+ALGORITH:
+	initilize random number generator
+	
+	display message prompting the user to enter 1 for rock, 2 for paper, or 3 for scissors
+		uChoice = input
+	
+	calculate a random number (1-3) using the ramdom number generator
+		cChoice = random number 
+
+	if uChoice = 1 and cChoice = 1
+		display a message for a tie
+	else if uChoice =2 and cChoice = 2
+		display a message for a tie
+	else if uChoice =3 and cChoice = 3
+		display a message for a tie
+	else if uChoice = 1 and cChoice = 3
+		display a message for user win
+	else if uChoice = 1 and cChoice = 2
+		display a message for user loss
+	else if uChoice = 2 and cChoice = 3
+		display a message for user loss
+	else if uChoice = 2 and cChoice = 1
+		display a message for user win
+	else if uChoice = 3 and cChoice = 2
+		display a message for user win
+	else if uChoice =3 and cChoice = 1
+		display a message for user loss
+	
+	else display a message for invalid input 
+		
+
+
+SOURCE CODE:
+	Random rnd = new Random();
+
+            Console.WriteLine("Enter '1' for rock, '2' for paper, or '3' for scissors");
+            int uChoice = int.Parse(Console.ReadLine());
+
+            int cChoice = rnd.Next(1, 3);
+
+            if (uChoice == 1 && cChoice == 1)
+            {
+                Console.Write("You Played " + uChoice + " "); Console.WriteLine("The Computer Played " + cChoice);
+                Console.WriteLine("TIE!");
+            }
+
+            else if (uChoice == 2 && cChoice == 2)
+            {
+                Console.Write("You Played " + uChoice + " "); Console.WriteLine("The Computer Played " + cChoice);
+                Console.WriteLine("TIE!");
+            }
+
+            else if (uChoice == 3 && cChoice == 3)
+            {
+                Console.Write("You Played " + uChoice + " "); Console.WriteLine("The Computer Played " + cChoice);
+                Console.WriteLine("TIE!");
+            }
+
+            else if (uChoice == 1 && cChoice == 3)
+            {
+                Console.Write("You Played " + uChoice + " "); Console.WriteLine("The Computer Played " + cChoice);
+                Console.WriteLine("YOU WIN!");
+            }
+
+            else if (uChoice == 1 && cChoice == 2)
+            {
+                Console.Write("You Played " + uChoice + " "); Console.WriteLine("The Computer Played " + cChoice);
+                Console.WriteLine("YOU LOSE");
+            }
+
+            else if (uChoice == 2 && cChoice == 1)
+            {
+                Console.Write("You Played " + uChoice + " "); Console.WriteLine("The Computer Played " + cChoice);
+                Console.WriteLine("YOU WIN!");
+            }
+
+            else if (uChoice == 2 && cChoice == 3)
+            {
+                Console.Write("You Played " + uChoice + " "); Console.WriteLine("The Computer Played " + cChoice);
+                Console.WriteLine("YOU LOSE!");
+            }
+
+
+            else if (uChoice == 3 && cChoice == 2)
+            {
+                Console.Write("You Played " + uChoice + " "); Console.WriteLine("The Computer Played " + cChoice);
+                Console.WriteLine("YOU WIN!");
+            }
+
+            else if (uChoice == 3 && cChoice == 1)
+            {
+                Console.Write("You Played " + uChoice + " "); Console.WriteLine("The Computer Played " + cChoice);
+                Console.WriteLine("YOU LOSE!");
+            }
+
+            else
+                Console.WriteLine("ERROR, Invalid Input!");
+
+            Console.ReadLine();
+
++++++++++++++++++++++
